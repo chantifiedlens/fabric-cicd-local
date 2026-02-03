@@ -1,0 +1,35 @@
+# find_replace examples
+find_replace:
+    # Replace Power BI Text
+    - find_value: "This is a Report in Dev!!!"
+      replace_value:
+        Test: "This is a Report in Test!!!"
+        Prod: "This is a Report in Prod!!!"
+
+    # Uncomment below
+    # lakehouse GUID to be replaced (using regex pattern)
+    - find_value: \#\s*META\s+"default_lakehouse":\s*"([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})"
+      replace_value:
+        Test: "$items.Lakehouse.WithoutSchema.id" # TEST lakehouse GUID (dynamic)
+        Prod: "$items.Lakehouse.WithoutSchema.id" # PROD lakehouse GUID (dynamic)
+      is_regex: "true"
+      item_type: "Notebook" # filter on notebook files
+      item_name: ["Hello World"] # filter on specific notebook files
+    # lakehouse workspace ID to be replaced (using regex pattern)
+    - find_value: \#\s*META\s+"default_lakehouse_workspace_id":\s*"([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})"
+      replace_value:
+          Test: "$workspace.id" # PPE workspace ID (dynamic)
+          Prod: "$workspace.id" # PROD workspace ID (dynamic)
+      is_regex: "true"
+      file_path: # filter on notebook files with a specific path
+          - "/Hello World.Notebook/notebook-content.py"
+
+# key_value_replace examples
+key_value_replace:
+    # Schedule enabled state to be replaced
+    - find_key: $.schedules[?(@.jobType=="Execute")].enabled
+      replace_value:
+          Test: false # disable execution in Test environment
+          Prod: true # enable execution in PROD environment
+      file_path: "**/.schedules" # filter on all .schedules files
+
