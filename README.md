@@ -4,7 +4,7 @@ This repository demonstrates the first steps of a **fabric-cicd** deployment wor
 
 ## About This Repository
 
-This example is based on the [fabric-cicd library](https://microsoft.github.io/fabric-cicd/latest/), an open-source tool that simplifies the CI/CD workflow for Microsoft Fabric projects.
+This example is based on the [fabric-cicd library](https://microsoft.github.io/fabric-cicd/latest/), an open-source tool that simplifies the CI/CD workflow for Microsoft Fabric projects. This repository was created to accompany the post “[First Fabric CI/CD Deployment Steps](https://chantifiedlens.com/2026/02/04/first-fabric-cicd-deployment-steps/)” and demonstrates how the library can be applied in a real-world scenario.
 
 ### Workspace Contents
 
@@ -212,6 +212,8 @@ The script enables experimental features for advanced deployments:
 - [fabric-cicd Documentation](https://microsoft.github.io/fabric-cicd/latest/)
 - [Microsoft Fabric Overview](https://learn.microsoft.com/en-us/fabric/get-started/fabric-home)
 - [Azure CLI Documentation](https://learn.microsoft.com/en-us/cli/azure/)
+- [Operationalize fabric-cicd to work with Microsoft Fabric and YAML Pipelines](https://chantifiedlens.com/2025/03/18/operationalize-fabric-cicd-to-work-with-microsoft-fabric-and-yaml-pipelines/)
+- [Operationalize fabric-cicd to work with Microsoft Fabric and GitHub Actions](https://chantifiedlens.com/2025/04/11/operationalize-fabric-cicd-to-work-with-microsoft-fabric-and-github-actions/)
 
 ---
 
